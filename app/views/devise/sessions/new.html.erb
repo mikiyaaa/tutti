@@ -30,7 +30,7 @@
                         <div class="auth-box-right">
                             <div class="card">
                                 <div class="card-body">
-                                <%= form_with model: @user, url: user_registration_path, class: 'login-form', local: true do |f| %>
+                                <%= form_with model: @user, url: new_user_session_path, class: 'login-form', local: true do |f| %>
                                     <div class="form-head">
                                         <a href="index.html" class="logo"><img src="assets/images/logo.svg" class="img-fluid" alt="logo"></a>
                                     </div> 
@@ -49,7 +49,7 @@
                                             </div>                                
                                         </div>
                                     </div>
-                                    <%= f.submit "Login", class:"btn btn-success btn-lg btn-block font-18" %>                          
+                                    <%= f.submit "Login", url: root_path, class:"btn btn-success btn-lg btn-block font-18" %>                          
                                     
                                 <% end %>
                                     <p class="mb-0 mt-3">Already have an account? <a href="/users/sign_up">Sign Up</a></p>
