@@ -1,2 +1,181 @@
-トップページ
-<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Gappa is a bootstrap minimal & clean admin template">
+    <meta name="keywords" content="chat, chat platform, discussion, video call, voice call, communication, conversation, messange, messanger, talk">
+    <meta name="author" content="Themesbox">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>Gappa - Clean & Minimal Chat Platform HTML Template</title>
+    <!-- Fevicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <!-- Start css -->
+    <!-- Slick css -->
+    <link href="assets/plugins/slick/slick.css" rel="stylesheet">
+    <link href="assets/plugins/slick/slick-theme.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/flag-icon.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <!-- End css -->
+</head>
+<body class="light-layout">
+
+    <!-- Start Chat Layout -->
+    <div class="chat-layout">
+        <!-- Start Chat Leftbar -->
+        <div class="chat-leftbar">
+            <div class="tab-content" id="pills-tab-justifiedContent">
+                <!-- Start Chat Listbar -->
+                <div class="tab-pane fade show active" id="pills-chat-justified" role="tabpanel" aria-labelledby="pills-chat-tab-justified">
+                    <div class="chat-listbar">
+                        <div class="chat-left-headbar">
+                            <div class="row align-items-center">
+                                <div class="col-9">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="media">
+                                            <img class="align-self-center mr-2" src="assets/images/logo.svg" alt="Generic placeholder image">
+                                            <div class="media-body">
+                                                <h5 class="mb-0 mt-2">Tutti</h5>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                            </div>
+                        </div>  
+                        <div class="chat-left-search">
+                            <form>
+                                <div class="input-group">
+                                  <input type="search" class="form-control" placeholder="ルーム作成にする" aria-label="Search" aria-describedby="chat-left-search-btn">
+                                  <div class="input-group-append">
+                                    <button class="btn" type="submit" id="chat-left-search-btn"><i class="feather icon-search"></i></button>
+                                  </div>
+                                </div>
+                            </form>
+                        </div>                                     
+                        <div class="chat-left-body">       
+                            <div class="nav flex-column nav-pills chat-userlist" id="chat-list-tab" role="tablist" aria-orientation="vertical">
+                                <a class="nav-link active" id="chat-first-tab" data-toggle="pill" href="#chat-first" role="tab" aria-controls="chat-first" aria-selected="true">
+                                    <div class="media active">
+                                        <div class="user-status"></div>
+                                        <img class="align-self-center rounded-circle" src="assets/images/girl.svg" alt="User Image">
+                                        <div class="media-body">
+                                            <h5>ルーム名<span class="chat-timing">02:30 pm</span></h5>
+                                            <p>Waiting for module 1 to finish...</p>
+                                        </div>
+                                    </div>
+                                </a>                                    
+                                <a class="nav-link" id="chat-second-tab" data-toggle="pill" href="#chat-second" role="tab" aria-controls="chat-second" aria-selected="false">
+                                    <div class="media">                                    
+                                        <img class="align-self-center rounded-circle" src="assets/images/boy.svg" alt="User Image">
+                                        <div class="media-body">
+                                            <h5>James Simeron<span class="chat-timing">Today</span></h5>
+                                            <p>Send your CV for more info...</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                                     
+                            </div>
+                        </div>                                       
+                    </div>                                    
+                </div>
+                <!-- End Chat Listbar -->
+  
+                
+            </div>
+            <div class="chat-menu">
+                
+            </div>
+        </div>
+        <!-- End Chat Leftbar -->
+        <!-- Start Chat Rightbar -->  
+        <div class="chat-rightbar">
+            <!-- Start Chat Detail -->
+            <div class="chat-detail">
+                <div class="chat-head">
+                    <div class="row align-items-center">
+                        <div class="col-6">                                                
+                            <ul class="list-unstyled mb-0">
+                                <li class="media">
+                                    <div class="user-status"></div>
+                                    <img class="align-self-center rounded-circle" src="assets/images/girl.svg" alt="Generic placeholder image">
+                                    <div class="media-body">
+                                        <h5>ユーザー名にする</h5>
+                                        <p class="mb-0"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                    </div>                                    
+                </div>
+                <div class="chat-body">
+                    <div class="tab-content" id="chat-listContent">
+                        <div class="tab-pane fade show active" id="chat-first" role="tabpanel" aria-labelledby="chat-first-tab">
+                            <div class="chat-day text-center mb-3">
+                                <span class="badge badge-secondary-inverse">Today</span>
+                            </div>                                
+                            <div class="chat-message chat-message-right">
+                                <div class="chat-message-text">
+                                    <span>Hello! please, let me know the status about project after school.</span>
+                                </div>
+                                <div class="chat-message-meta">
+                                    <span>4:18 pm<i class="feather icon-check ml-2"></i></span>
+                                </div>
+                            </div>
+                            <div class="chat-message chat-message-left">
+                                <div class="chat-message-text">
+                                    <span>I have completed 4 stages 5 stages remaining.</span>
+                                </div>
+                                <div class="chat-message-meta">
+                                    <span>4:20 pm<i class="feather icon-check ml-2"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="chat-second" role="tabpanel" aria-labelledby="chat-second-tab">
+                            <div class="empty-screen">
+                                <img src="assets/images/empty-logo.png" class="img-fluid" alt="empty-logo">
+                                <h4 class="my-3">No Conversation Yet.</h4>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+                <div class="chat-bottom">
+                    <div class="chat-messagebar">
+                        <form>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <a href="#" id="button-addonmic"><i class="feather icon-mic"></i></a>
+                                </div>  
+                                <input type="text" class="form-control" placeholder="チャットメッセージ入力..." aria-label="Text">
+                                <div class="input-group-append">
+                                    <a href="#" class="mr-3" id="button-addonlink"><i class="feather icon-paperclip"></i></a>
+                                    <a href="#" id="button-addonsend"><i class="feather icon-send"></i></a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- End Chat Detail -->
+        </div>
+        <!-- End Chat Rightbar -->
+    </div>
+    <!-- End Chat Layout -->
+    <!-- Start js -->        
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/modernizr.min.js"></script>
+    <script src="assets/js/detect.js"></script>
+    <script src="assets/js/jquery.slimscroll.js"></script>
+    <script src="assets/js/vertical-menu.js"></script>
+    <!-- Slick js -->
+    <script src="assets/plugins/slick/slick.min.js"></script>
+    <!-- Core js -->
+    <script src="assets/js/core.js"></script>
+    <!-- End js -->
+</body>
+</html>
