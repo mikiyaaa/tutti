@@ -23,14 +23,20 @@
                             </div>
                         </div>  
                         <div class="chat-left-search">
-                            <form>
-                                <div class="input-group">
-                                  <input type="search" class="form-control" placeholder="ルーム作成にする" aria-label="Search" aria-describedby="chat-left-search-btn">
+                            <%=form_with model: @room, local: true do |f|%>
+                                
+                                    <%= f.text_field :name, class: 'form-control', placeholder: 'ルーム名'%>
+                                    <p class="chat-member-select">チャットするユーザーを選択してください</p>
+                                    <select name="room[user_ids][]" >
+                                        <%= f.collection_check_boxes :user_ids, User.where.not(id: current_user.id).all, :id, :last_name, {include_hidden: false} %>
+                                    </select>
+                                    <input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>>
+
                                   <div class="input-group-append">
-                                    <button class="btn" type="submit" id="chat-left-search-btn"><i class="feather icon-search"></i></button>
+                                    <%= f.submit class: 'room-creaet btn-primary', value: 'ルーム作成'%>
                                   </div>
-                                </div>
-                            </form>
+                                
+                            <% end %>
                         </div>                                     
                         <div class="chat-left-body">       
                             <div class="nav flex-column nav-pills chat-userlist" id="chat-list-tab" role="tablist" aria-orientation="vertical">
@@ -79,8 +85,8 @@
                                     <div class="user-status"></div>
                                     <img class="align-self-center rounded-circle" src="assets/images/girl.svg" alt="Generic placeholder image">
                                     <div class="media-body">
-                                        <h5>ユーザー名にする</h5>
-                                        <p class="mb-0"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
+                                        <h5><%= current_user.last_name %></h5>
+                                        <p class="mb-0"><%= button_to 'Exit', destroy_user_session_path, method: :delete %></p>
                                     </div>
                                 </li>
                             </ul>
@@ -142,17 +148,20 @@
     </div>
     <!-- End Chat Layout -->
     <!-- Start js -->        
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/modernizr.min.js"></script>
-    <script src="assets/js/detect.js"></script>
-    <script src="assets/js/jquery.slimscroll.js"></script>
-    <script src="assets/js/vertical-menu.js"></script>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/modernizr.min.js"></script>
+    <script src="/assets/js/detect.js"></script>
+    <script src="/assets/js/jquery.slimscroll.js"></script>
+    <script src="/assets/js/vertical-menu.js"></script>
     <!-- Slick js -->
-    <script src="assets/plugins/slick/slick.min.js"></script>
+    <script src="/assets/plugins/slick/slick.min.js"></script>
     <!-- Core js -->
-    <script src="assets/js/core.js"></script>
+    <script src="/assets/js/core.js"></script>
     <!-- End js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 </html>
