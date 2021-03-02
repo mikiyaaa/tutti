@@ -19,47 +19,19 @@
                                         </li>
                                     </ul>
                                 </div>
-                                
                             </div>
                         </div>  
-                        <div class="chat-left-search">
-                            <%=form_with model: @room, local: true do |f|%>
-                                
-                                    <%= f.text_field :name, class: 'form-control', placeholder: 'ルーム名'%>
-                                    <p class="chat-member-select">チャットするユーザーを選択してください</p>
-                                    <select name="room[user_ids][]" >
-                                        <%= f.collection_check_boxes :user_ids, User.where.not(id: current_user.id).all, :id, :last_name, {include_hidden: false} %>
-                                    </select>
-                                    <input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>>
-
-                                  <div class="input-group-append">
-                                    <%= f.submit class: 'room-creaet btn-primary', value: 'ルーム作成'%>
-                                  </div>
-                            <% end %>
-                        </div>                                     
-                        <div class="chat-left-body">       
-                            <div class="nav flex-column nav-pills chat-userlist" id="chat-list-tab" role="tablist" aria-orientation="vertical">
-                                <a class="nav-link active" id="chat-first-tab" data-toggle="pill" href="#chat-first" role="tab" aria-controls="chat-first" aria-selected="true">
-                                    <div class="media active">
-                                        <div class="user-status"></div>
-                                        <img class="align-self-center rounded-circle" src="assets/images/girl.svg" alt="User Image">
-                                        <div class="media-body">
-                                            <h5>ルーム名<span class="chat-timing">02:30 pm</span></h5>
-                                            <p>Waiting for module 1 to finish...</p>
-                                        </div>
+                                                          
+                        <div class="chat-left-body">
+                            <% current_user.rooms.each do |room| %>     
+                                <div class="nav flex-column nav-pills chat-userlist" id="chat-list-tab" role="tablist" aria-orientation="vertical">
+                                    <div class="nav-link active">
+                                            <div class="media-body">
+                                                <h5><%= link_to room.name, room_path(room) %></h5>
+                                            </div>                                      
                                     </div>
-                                </a>                                    
-                                <a class="nav-link" id="chat-second-tab" data-toggle="pill" href="#chat-second" role="tab" aria-controls="chat-second" aria-selected="false">
-                                    <div class="media">                                    
-                                        <img class="align-self-center rounded-circle" src="assets/images/boy.svg" alt="User Image">
-                                        <div class="media-body">
-                                            <h5>James Simeron<span class="chat-timing">Today</span></h5>
-                                            <p>Send your CV for more info...</p>
-                                        </div>
-                                    </div>
-                                </a>
-                                                     
-                            </div>
+                                </div>
+                            <% end %>    
                         </div>                                       
                     </div>                                    
                 </div>
@@ -94,35 +66,7 @@
                     </div>                                    
                 </div>
                 <div class="chat-body">
-                    <div class="tab-content" id="chat-listContent">
-                        <div class="tab-pane fade show active" id="chat-first" role="tabpanel" aria-labelledby="chat-first-tab">
-                            <div class="chat-day text-center mb-3">
-                                <span class="badge badge-secondary-inverse">Today</span>
-                            </div>                                
-                            <div class="chat-message chat-message-right">
-                                <div class="chat-message-text">
-                                    <span>Hello! please, let me know the status about project after school.</span>
-                                </div>
-                                <div class="chat-message-meta">
-                                    <span>4:18 pm<i class="feather icon-check ml-2"></i></span>
-                                </div>
-                            </div>
-                            <div class="chat-message chat-message-left">
-                                <div class="chat-message-text">
-                                    <span>I have completed 4 stages 5 stages remaining.</span>
-                                </div>
-                                <div class="chat-message-meta">
-                                    <span>4:20 pm<i class="feather icon-check ml-2"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="chat-second" role="tabpanel" aria-labelledby="chat-second-tab">
-                            <div class="empty-screen">
-                                <img src="assets/images/empty-logo.png" class="img-fluid" alt="empty-logo">
-                                <h4 class="my-3">No Conversation Yet.</h4>
-                            </div>
-                        </div>
-                    </div>                    
+                    <img class="align-self-center mr-2" src="assets/images/authenticatiton-bg.jpg" alt="chat image">                    
                 </div>
                 <div class="chat-bottom">
                     <div class="chat-messagebar">
@@ -162,5 +106,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 </body>
 </html>
