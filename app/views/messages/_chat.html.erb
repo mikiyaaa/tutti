@@ -1,0 +1,35 @@
+<div class="chat-detail">
+                <div class="chat-head">
+                    <div class="row align-items-center">
+                        <div class="col-6">                                                
+                            <ul class="list-unstyled mb-0">
+                                <li class="media">
+                                    <div class="user-status"></div>
+                                    <img class="align-self-center rounded-circle" src="assets/images/girl.svg" alt="Generic placeholder image">
+                                    <div class="media-body">
+                                        <h5><%= current_user.last_name %></h5>
+                                        <p class="mb-0"><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                    </div>                                    
+                </div>
+                <div class="chat-body">
+                    <img class="align-self-center mr-2" src="assets/images/authenticatiton-bg.jpg" alt="chat image">
+                    <%= render partial: 'message', collection: @messages %>
+                </div>
+                <div class="chat-bottom">
+                    <div class="chat-messagebar">
+                        <%= form_with model: [@room, @message], class: 'form', local: true do |f| %>
+                            <div class="input-group">
+                                 <%= f.text_field :text, class: 'form-control', placeholder: 'チャットメッセージ入力...' %>    
+                                <div class="input-group-append">
+                                <%= f.submit class: 'room-creaet btn-primary', value: '送信'%> 
+                                </div>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>

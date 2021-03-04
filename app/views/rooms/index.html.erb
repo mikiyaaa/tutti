@@ -52,7 +52,7 @@
                                 <div class="nav flex-column nav-pills chat-userlist" id="chat-list-tab" role="tablist" aria-orientation="vertical">
                                     <div class="nav-link active">
                                             <div class="media-body">
-                                                <h5><%= link_to room.name, room_path(room) %></h5>
+                                                <h5><%= link_to room.name, room_messages_path(room) %></h5>
                                             </div>                                      
                                     </div>
                                 </div>
@@ -82,7 +82,7 @@
                                     <img class="align-self-center rounded-circle" src="assets/images/girl.svg" alt="Generic placeholder image">
                                     <div class="media-body">
                                         <h5><%= current_user.last_name %></h5>
-                                        <p class="mb-0"><%= button_to 'Exit', destroy_user_session_path, method: :delete %></p>
+                                        <p class="mb-0"><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></p>
                                     </div>
                                 </li>
                             </ul>

@@ -27,7 +27,7 @@
                                 <div class="nav flex-column nav-pills chat-userlist" id="chat-list-tab" role="tablist" aria-orientation="vertical">
                                     <div class="nav-link active">
                                             <div class="media-body">
-                                                <h5><%= link_to room.name, room_path(room) %></h5>
+                                                <h5><%= link_to room.name, room_messages_path(room) %></h5>
                                             </div>                                      
                                     </div>
                                 </div>
@@ -47,44 +47,7 @@
         <!-- Start Chat Rightbar -->  
         <div class="chat-rightbar">
             <!-- Start Chat Detail -->
-            <div class="chat-detail">
-                <div class="chat-head">
-                    <div class="row align-items-center">
-                        <div class="col-6">                                                
-                            <ul class="list-unstyled mb-0">
-                                <li class="media">
-                                    <div class="user-status"></div>
-                                    <img class="align-self-center rounded-circle" src="assets/images/girl.svg" alt="Generic placeholder image">
-                                    <div class="media-body">
-                                        <h5><%= current_user.last_name %></h5>
-                                        <p class="mb-0"><%= button_to 'Exit', destroy_user_session_path, method: :delete %></p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                    </div>                                    
-                </div>
-                <div class="chat-body">
-                    <img class="align-self-center mr-2" src="assets/images/authenticatiton-bg.jpg" alt="chat image">                    
-                </div>
-                <div class="chat-bottom">
-                    <div class="chat-messagebar">
-                        <form>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <a href="#" id="button-addonmic"><i class="feather icon-mic"></i></a>
-                                </div>  
-                                <input type="text" class="form-control" placeholder="チャットメッセージ入力..." aria-label="Text">
-                                <div class="input-group-append">
-                                    <a href="#" class="mr-3" id="button-addonlink"><i class="feather icon-paperclip"></i></a>
-                                    <a href="#" id="button-addonsend"><i class="feather icon-send"></i></a>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            <%= render 'chat' %>
             <!-- End Chat Detail -->
         </div>
         <!-- End Chat Rightbar -->

@@ -1,0 +1,30 @@
+<div class="tab-content" id="chat-listContent">
+    <div class="tab-pane fade show active" id="chat-first" role="tabpanel" aria-labelledby="chat-first-tab">
+        
+        <% if message.user.id == current_user.id %>
+          <div class="chat-message chat-message-right">
+              <div class="chat-message-text">
+                  <span><%= message.text %></span>
+              </div>
+              <div class="chat-message-meta">
+                  <span><%= l message.created_at %><i class="feather"></i></span>
+                  <div class="chat-message-meta">
+                    <span><%= message.user.last_name %><i class="feather"></i></span>
+                  </div>
+              </div>
+          </div>
+        <% else %>
+          <div class="chat-message chat-message-left">
+              <div class="chat-message-text">
+                <span><%= message.text %></span>
+              </div>
+              <div class="chat-message-meta">
+                  <span><%= l message.created_at %><i class="feather"></i></span>
+                  <div class="chat-message-meta">
+                    <span><%= message.user.last_name %><i class="feather"></i></span>
+                  </div>
+              </div>
+          </div>
+        <% end %>
+    </div>
+</div>     
