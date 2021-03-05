@@ -1,0 +1,75 @@
+<body class="light-layout">
+    <!-- Start Chat Layout -->
+    <div class="chat-layout">
+        <!-- Start Chat Leftbar -->
+        <div class="chat-leftbar">
+            <div class="tab-content" id="pills-tab-justifiedContent">
+                <!-- Start Chat Listbar -->
+                <div class="tab-pane fade show active" id="pills-chat-justified" role="tabpanel" aria-labelledby="pills-chat-tab-justified">
+                    <div class="chat-listbar">
+                        <div class="chat-left-headbar">
+                            <div class="row align-items-center">
+                                <div class="col-9">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="media">
+                                            
+                                            <div class="media-body">
+                                                <h5 class="mb-0 mt-2"><%= link_to 'Tutti', root_path %></h5>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>  
+                                                          
+                        <div class="chat-left-body">
+                            <% current_user.rooms.each do |room| %>     
+                                <div class="nav flex-column nav-pills chat-userlist" id="chat-list-tab" role="tablist" aria-orientation="vertical">
+                                    <div class="nav-link active">
+                                            <div class="media-body">
+                                                <h5><%= link_to room.name, room_messages_path(room) %></h5>
+                                            </div>                                      
+                                    </div>
+                                </div>
+                            <% end %>    
+                        </div>                                       
+                    </div>                                    
+                </div>
+                <!-- End Chat Listbar -->
+  
+                
+            </div>
+            <div class="chat-menu">
+                
+            </div>
+        </div>
+        <!-- End Chat Leftbar -->
+        <!-- Start Chat Rightbar -->  
+        <div class="chat-rightbar">
+            <!-- Start Chat Detail -->
+            <%= render 'chat' %>
+            <!-- End Chat Detail -->
+        </div>
+        <!-- End Chat Rightbar -->
+    </div>
+    <!-- End Chat Layout -->
+    <!-- Start js -->        
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/modernizr.min.js"></script>
+    <script src="/assets/js/detect.js"></script>
+    <script src="/assets/js/jquery.slimscroll.js"></script>
+    <script src="/assets/js/vertical-menu.js"></script>
+    <!-- Slick js -->
+    <script src="/assets/plugins/slick/slick.min.js"></script>
+    <!-- Core js -->
+    <script src="/assets/js/core.js"></script>
+    <!-- End js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+</body>
+</html>

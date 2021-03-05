@@ -5,10 +5,11 @@
   複数人でのビデオチャットアプリ
 
 ## URL
-
+https://tutti-application.herokuapp.com/
 
 ## テスト用アカウント
-
+email mikiya@example.com
+password 111111abc
 
 ## 利用方法
   新規登録・ログインしたユーザーのみtuttiを利用できる。
@@ -26,17 +27,64 @@
 - ユーザー管理機能
 - ルーム作成機能
 - メッセージ機能
-- ビデオ通話機能
-
-## 実装した機能の動画
 
 
 ## 実装予定の機能
   メッセージの既読機能
   メッセージデータは1日で自動削除
-  ビデオチャットの時間制限・人数制限
+  ビデオチャット機能
 
 ## データベース設計
+## users テーブル
+
+| Column             | Type        | Options                   |
+| ------------------ | ----------- | ------------------------- |
+| last_name          | string      | null: false               |
+| first_name         | string      | null: false               |
+| last_name_kana     | string      | null: false               |
+| first_name_kana    | string      | null: false               |
+| email              | string      | null: false, unique: true |
+| encrypted_password | string      | null: false               |
+
+### Association
+
+- has_many :messages
+- has_many :room_users
+
+## rooms テーブル
+
+| Column             | Type        | Options                   |
+| ------------------ | ----------- | ------------------------- |
+| name               | string      | null: false               |
+
+### Association
+
+- has_many :messages
+- has_many :room_users
 
 
-## ローカルでの動作方法
+## room_users テーブル
+
+| Column        | Type        | Options                        |
+| ------------- | ----------- | ------------------------------ |
+| user          | references  | null: false, foreign_key: true |
+| room          | references  | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :room
+
+
+## messages テーブル
+
+| Column        | Type        | Options                        |
+| ------------- | ----------- | ------------------------------ |
+| text          | text        | null: false                    |
+| user          | references  | null: false, foreign_key: true |
+| room          | references  | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :room
