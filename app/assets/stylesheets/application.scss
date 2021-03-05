@@ -18,3 +18,12 @@
 .media-body {
   margin-left: 10px;
 }
+
+.chat-body {
+  background-color: snow;
+}
+
+.media-body {
+  display: flex;
+  justify-content: space-between;
+}

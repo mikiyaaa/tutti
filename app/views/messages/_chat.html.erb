@@ -5,10 +5,10 @@
                             <ul class="list-unstyled mb-0">
                                 <li class="media">
                                     <div class="user-status"></div>
-                                    <img class="align-self-center rounded-circle" src="assets/images/girl.svg" alt="Generic placeholder image">
+                                    
                                     <div class="media-body">
-                                        <h5><%= current_user.last_name %></h5>
-                                        <p class="mb-0"><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></p>
+                                    <h4><%= current_user.last_name %></h4>
+                                    <p class="mb-0"><%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'room-creaet btn-primary' %></p>
                                     </div>
                                 </li>
                             </ul>
